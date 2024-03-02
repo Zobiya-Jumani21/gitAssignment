@@ -11,4 +11,137 @@
 
 }
 
-$green: #0eb582;
+.contacts{
+     .icon-container{
+          margin-top: 3rem;
+     includegrid:(25rem);
+     }
+     .icons{
+     text-align: center;
+     padding:3rem 2rem;
+     border: border;
+     background: light-green;
+     }
+     i{
+     height: 6rem;
+     width : 6rem;
+     line-lenght: 6rem;
+     font-size: 2rem;
+     border-raduis: 50%;
+     margin-bottom:  .5rem;
+     color: white;
+     background: green; 
+     }
+     h3{
+     include :titleText(2rem);
+     padding:5rem 0;
+     }
+}
+p{
+@include graphText(1.5rem);
+}
+
+.row{
+display: flex;
+align-items: center;
+flex-wrap: wrap;
+gap:2rem;
+}
+.image{
+flex:1 1 40rem;
+
+img{
+width: 100%;
+}
+}
+form{
+     flex:1 1 40rem;
+     border:border;
+     text-align: center;
+     padding: 2rem;
+}
+     
+     
+     h3{
+     @include titleText(2.5rem);
+     padding-bottom: 1rem;
+}
+.box{
+width: 100%;
+padding:1.2rem 1.4rem;
+border: border;
+font-size: 1.6rem;
+margin: .7rem 0;
+
+&::focus{
+background : green;
+color:white;
+&::placeholder{
+color:light-white;
+}
+}
+}
+textarea{
+height: 15rem;
+resize: none;
+}
+
+
+.faq{
+     .accordion-container{
+          display: flex;
+          flex-wrap: wrap;
+          gap:2rem;
+          align-items: flex-start;
+
+          .accordion{
+               flex: 1 1 40rem;
+               border: border;
+               &.active{
+                    . .accordion-heading{
+                         background: green;
+                         h3{
+                              color: white;
+
+                         }
+                         i{
+                              color: white;
+                              transform: rotate(180deg);
+
+                         }
+                    }
+                    .accordion-content{
+                         display: block;
+
+                    }
+                    
+                    
+               }
+
+               .accordion-heading{
+                    display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1rem;
+                cursor: pointer;
+                padding: 1.5rem;
+
+                h3{
+                    @include titleText(2rem);
+                }
+                i{
+                    font-size: 2rem;
+                    color: green;
+                } 
+               } 
+               .accordion-content{
+                    padding: 1.5rem;
+                    @include graphText(1.5rem);
+                    border-top: border;
+                    display: none;
+
+
+               }
+          }
+     }
+}
