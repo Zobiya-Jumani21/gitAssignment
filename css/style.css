@@ -44,16 +44,32 @@ html {
     overflow-x: hidden;
 }
 
-html::-webkit-scrollbar {
+&::-webkit-scrollbar {
     width: 1rem;
 }
 
-html::-webkit-scrollbar-track {
+&::-webkit-scrollbar-track {
     background: transparent;
 }
 
-html::-webkit-scrollbar-thumb {
+&::-webkit-scrollbar-thumb {
     background: var(--green);
+}
+ .btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    border: var(--border);
+    background: lightgreen;
+    color: green;
+    cursor: pointer;
+    text-transform: capitalize;
+
+    &:hover{
+        background: green;
+        color: white;
+    } 
 }
 
 .header {
@@ -79,8 +95,8 @@ html::-webkit-scrollbar-thumb {
 
     .navbar {
         position: relative;
-
-        #close-navbar{position: absolute;
+#close-navbar{
+    position: absolute;
         top: 1.5rem;
     right: 2rem;
 font-size: 4rem;
@@ -113,10 +129,95 @@ color: black;
     }
 
     #menu-btn{
-        display: var(--box-shadow);
+        display: none;
     }
 }
+ .account-form{
+    position: fixed;
+    top: 0; right: -105%;
+    width: 35rem;
+    background: white;
+    display: flex;
+    flex-flow: column;
+    gap: 2rem;
+    justify-content: center;
+    height: 100%;
+   /* box-shadow: 0 0 0 100vw rgba(0, 0, 0, .8); */
+    z-index: 1200;
+    padding: 2rem;
+    text-align: center;
 
+#close-form{
+    position: absolute;
+    top: 1.5rem;
+right: 2.5rem;
+font-size: 4rem;
+cursor: pointer;
+color: black;
+
+&.hover{
+    transform: rotate(90deg);
+}
+}
+form{
+    border: var(--border);
+    padding: 2rem;
+    display: none;
+
+    &.active{
+        display: block;
+    }
+    
+
+    h3{
+        @include titleText(2.5rem);
+        padding-bottom: .5rem;
+        text-transform: uppercase;
+    }
+    .box{
+        width: 100%;
+        border: 1.2rem 1.4rem;
+        border: border;
+        font-size: 1.6rem;
+        margin: .7rem 0;
+    }
+    .flex{
+        padding: 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+
+         label{
+           font-size: 1.5rem;
+           color: var(--light-color);
+           cursor: pointer;
+         
+         }
+         a{
+            font-size: 1.5rem;
+            color: var(--light-color);
+            margin-left: auto;
+
+            &:hover{
+                text-decoration: underline;
+            color: green;            }
+          }
+    }
+}
+.btn{
+    width: 100%;
+
+}
+.buttons .btn{
+    margin: 0 .5rem;
+
+    &.active{
+        background: green
+        color wheat;
+    }
+    }   
+ }
+ 
 
 /*media queries */
 @media (max-width:1200px){
@@ -140,6 +241,7 @@ color: black;
     #menu-btn{
         display: inline-block;
     }
+
     .navbar{
         position: fixed;
         top:0; right: -105%;
@@ -150,7 +252,7 @@ color: black;
         display: flex;
         flex-flow: column;
         justify-content: center;
-
+z-index: 1200;
         &.active{
 
         }
