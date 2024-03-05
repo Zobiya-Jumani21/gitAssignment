@@ -1,6 +1,7 @@
 let navbar = document.querySelector('.header .navbar');
+let menuBtn = document.querySelector('#menu-btn');
 
-document.querySelector('#menu-btn').onclick = () => {
+menuBtn.onclick = () => {
     navbar.classList.add('active');
 };
 
@@ -26,7 +27,7 @@ loginBtn.onclick = () => {
 };
 
 let accountForm = document.querySelector('.account-form');
-document.querySelector('#account-form').onclick = () => {
+document.querySelector('#account-btn').onclick = () => {
     accountForm.classList.add('active');
 };
 

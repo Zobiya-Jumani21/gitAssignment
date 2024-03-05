@@ -50,58 +50,58 @@ html {
   display: flex;
   align-items: center;
   z-index: 1000;
+}
 
-  .logo {
-    margin-right: auto;
-    font-size: 2.5rem;
+.logo {
+  margin-right: auto;
+  font-size: 2.5rem;
+  color: var(--black);
+  font-weight: bolder;
+
+  i {
+    color: green;
+  }
+}
+
+.navbar {
+  position: relative;
+
+  #close-navbar {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 4rem;
+    cursor: pointer;
+    color: black;
+
+    &:hover {
+      transform: rotate(90deg);
+    }
+  }
+
+  a {
+    margin-right: 2rem;
+    font-size: 2rem;
     color: var(--black);
-    font-weight: bolder;
 
-    i {
+    &:hover {
       color: green;
     }
   }
 
-  .navbar {
-    position: relative;
+  .icons div {
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: green;
+    margin-left: 1.5rem;
 
-    #close-navbar {
-      position: absolute;
-      top: 1.5rem;
-      right: 2rem;
-      font-size: 4rem;
-      cursor: pointer;
-      color: black;
-
-      &:hover {
-        transform: rotate(90deg);
-      }
-    }
-
-    a {
-      margin-right: 2rem;
-      font-size: 2rem;
-      color: var(--black);
-
-      &:hover {
-        color: green;
-      }
-    }
-
-    .icons div {
-      cursor: pointer;
-      font-size: 2.5rem;
+    &:hover {
       color: green;
-      margin-left: 1.5rem;
-
-      &:hover {
-        color: green;
-      }
     }
+  }
 
-    #menu-btn {
-      display: var(--box-shadow);
-    }
+  #menu-btn {
+    display: var(--box-shadow);
   }
 }
 
