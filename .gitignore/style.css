@@ -253,6 +253,51 @@ section {
   color: #777;
 }
 
+.home-courses .slide {
+  text-align: center;
+  position: relative;
+  width: 30rem;
+  background: #f0fdfa;
+  overflow: hidden;
+}
+.home-courses .slide:hover .content {
+  bottom: 0;
+}
+.home-courses .slide .image {
+  padding: 2rem;
+}
+.home-courses .slide .image img {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+.home-courses .slide .image h3 {
+  font-size: 2ren;
+  color: #444;
+}
+.home-courses .slide .content {
+  position: absolute;
+  bottom: -100;
+  right: 0;
+  left: 0;
+  background: #444;
+  padding: 2rem 3rem;
+}
+.home-courses .slide .content h3 {
+  font-size: 2rem;
+  color: #444;
+  color: #fff;
+}
+.home-courses .slide .content p {
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  line-height: 2;
+  color: #777;
+  color: #f0fdfa;
+}
+.home-courses .slide .content .btn:hover {
+  background: #444;
+}
+
 .footer {
   background: #f0fdfa;
 }
