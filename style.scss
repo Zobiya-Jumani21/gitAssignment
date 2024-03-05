@@ -8,8 +8,8 @@
      .icons{
      text-align: center;
      padding:3rem 2rem;
-     border:$border;
-     background:$light-green;
+     border: $border;
+     background: $light-green;
      }
 
      i{
@@ -20,7 +20,7 @@
      border-radius:  50%;
      margin-bottom:  .5rem;
      color: $white;
-     background:$green; 
+     background: $green; 
      }
 
      h3{
@@ -45,7 +45,10 @@ flex:1 1 40rem;
 img{
 width: 100%;
 }
+
 }
+
+
 form{
      flex:1 1 40rem;
      border:$border;
