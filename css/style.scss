@@ -8,19 +8,16 @@
     outline: none;
     border: none;
     text-decoration: none;
-    transition: all 0.2s linear;
+    transition: all .2s linear;
 }
-
-:root {
-    --green: #0eb582;
-    --light-green: #f0fdfa;
-    --light-color: #777;
-    --light-wight: #eee;
-    --black: #444;
-    --white: #fff;
-    --border: 1rem solid var(--green);
-    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
-}
+$green: #0eb582;
+$light-green: #f0fdfa;
+$light-color: #777;
+$ligh-white: #eee;
+$black: #444;
+$white: #fff;
+$border: .1rem solid $green;
+$box-shadow:0 .5rem 1rem rgba(0,0,0, .1);
 
 @mixin grid($val) {
     display: grid;
@@ -30,32 +27,55 @@
 
 @mixin titleText($titleSize) {
     font-size: $titleSize;
-    color: var(--black);
+    color: $black;
 }
 
 @mixin graphText($graphSize) {
     font-size: $graphSize;
     line-height: 2;
-    color: var(--light-color);
+    color: $light-color;
 }
 
 html {
     font-size: 62.5%;
     overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 1rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: $green;
+    }
+    
 }
 
-html::-webkit-scrollbar {
-    width: 1rem;
+section{
+    padding: 5rem 10%;
 }
 
-html::-webkit-scrollbar-track {
-    background: transparent;
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    border: $border;
+    background: $light-green;
+    color: $green;
+    cursor: pointer;
+    text-transform: capitalize;
+
+    &:hover{
+        background: $green;
+        color: $white;
+    } 
 }
 
-html::-webkit-scrollbar-thumb {
-    background: var(--green);
-}
-$green: #0eb582; // THIS WAS NOT IN THE VIDEO, DEFINETLEY SOMETHING WAS WRONG BEFORE THIS
 .heading-link { 
     text-align: center;
     background: url(../Images/heading-bg.png) no-repeat;
@@ -70,10 +90,10 @@ $green: #0eb582; // THIS WAS NOT IN THE VIDEO, DEFINETLEY SOMETHING WAS WRONG BE
         @include graphText(2rem);
 
         a{
-            color: $green;
+            color:$green;
 
             &:hover{
-                text-decoration: underline;
+                text-decoration:underline;
             }
         }
     }
@@ -85,8 +105,8 @@ $green: #0eb582; // THIS WAS NOT IN THE VIDEO, DEFINETLEY SOMETHING WAS WRONG BE
     top: 0;
     left: 0;
     right: 0;
-    background: white;
-    box-shadow: var(--box-shadow);
+    background:$white;
+    box-shadow: $box-shadow;
     padding: 2rem 10%;
     display: flex;
     align-items: center;
@@ -97,49 +117,212 @@ $green: #0eb582; // THIS WAS NOT IN THE VIDEO, DEFINETLEY SOMETHING WAS WRONG BE
      @include titleText(2.5rem);
      font-weight: bolder;
      i{
-          color: green;
+          color:$green;
      }
     }
-
     .navbar {
         position: relative;
-
-        #close-navbar{position: absolute;
+#close-navbar{
+    position: absolute;
         top: 1.5rem;
     right: 2rem;
 font-size: 4rem;
 cursor: pointer;
-color: black;
+color:$black;
+display: none;
 
 &:hover{
     transform: rotate(90deg);
-}}
+}
         a{
             margin-right: 2rem;
             @include titleText(2rem);
             
             
             &:hover{
-                color: green;
+                color: $green;
             }
                 }
     }
-
     .icons div{
         cursor: pointer;
         font-size: 2.5rem;
-        color: green;
+        color: $black;
         margin-left: 1.5rem;
 
         &:hover{
-            color: green;
+            color: $green;
         }
     }
-
     #menu-btn{
-        display: var(--box-shadow);
+        display: none;
     }
 }
+.account-form{
+    position: fixed;
+    top: 0; right: -105%;
+    width: 35rem;
+    background: white;
+    display: flex;
+    flex-flow: column;
+    gap: 2rem;
+    justify-content: center;
+    height: 100%;
+   /* box-shadow: 0 0 0 100vw rgba(0, 0, 0, .8); */
+    z-index: 1200;
+    padding: 2rem;
+    text-align: center;
+
+    &.active{
+        right: 0;
+        box-shadow: 0 0 0 100vw rgba(0, 0, 0, .8);
+    }
+
+#close-form{
+    position: absolute;
+    top: 1.5rem;
+right: 2.5rem;
+font-size: 4rem;
+cursor: pointer;
+color: $black;
+
+&.hover{
+    transform: rotate(90deg);
+}
+}
+form{
+    border: $border;
+    padding: 2rem;
+    text-align: center;
+    display: none;
+
+    &.active{
+        display: block;
+    }
+    
+
+    h3{
+        @include titleText(2.5rem);
+        padding-bottom: .5rem;
+        text-transform: uppercase;
+    }
+    .box{
+        width: 100%;
+        border: 1.2rem 1.4rem;
+        border: $border;
+        font-size: 1.6rem;
+        margin: .7rem 0;
+    }
+    .flex{
+        padding: 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+
+         label{
+           font-size: 1.5rem;
+           color: $light-color;
+           cursor: pointer;
+         
+         }
+         a{
+            font-size: 1.5rem;
+            color: $light-color;
+            margin-left: auto;
+
+            &:hover{
+                text-decoration: underline;
+            color: $green;            }
+          }
+    }
+}
+.btn{
+    width: 100%;
+
+}
+.buttons .btn{
+    margin: 0 .5rem;
+
+    &.active{
+        background: $green
+        color $white;
+    }
+    }   
+ }
+}
+
+.footer{
+    background: $light-green;
+     
+    .box-container{
+        @include grid(25rem);
+
+        .box{
+            h3{
+                @include titleText(2.2rem);
+                padding: 1rem 0;
+
+                i{
+                    color: $green;
+                }
+            }
+         .share{
+            margin-top: 1rem;
+
+            a{
+                height: 4.5rem;
+                width: 4.5rem;
+                line-height: 4.5rem;
+                font-size: 1.7rem;
+                background-color: $green;
+                color: $white;
+                margin-right: .3rem;
+            text-align: center;
+                &:hover{
+                    background-color: $black;
+                }
+
+            }
+         }
+            .link{
+                @include graphText(1.7rem);
+                padding: .5rem 0;
+                display: block;
+
+                &:hover{
+                    color: $green;
+                    text-decoration: underline;
+                }
+            }  
+
+            p{
+                @include graphText(1.5rem);
+                padding: 1rem 0;
+            }
+
+            .email{
+                width: 100%;
+                padding: 1.2rem 1.4rem;
+                font-size: 1.6rem;
+                border: $border;
+                margin-bottom: 1rem;
+            }
+              }
+    }
+
+    .credit{
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 3rem;
+        @include titleText(2rem);
+        border-top: $border;
+
+        span{
+            color: $green;
+        }
+    }
+}
+
 
 .about{
     display:flex;
@@ -150,7 +333,7 @@ color: black;
     .image{
         flex: 1 1 40rem;
         img{
-            width: 100%;
+            width: 80%;
         }
     }
 
@@ -158,21 +341,160 @@ color: black;
         flex: 1 1 40rem;
 
         .about-title{
-            @include titleText(2.5rem);
+            @include titleText(3rem);
         }
         p{
             @include graphText(1.5rem);
+            padding: 1rem 0;
+        }
+
+        .icons-container{
+            margin-top: 1rem;
+            @include grid(16rem);
+            // display: flex;
+            // flex-wrap: wrap;
+            // gap: 1.5rem;
+
+            .icons{
+                //flex: 1 1 12rem;
+                text-align: center;
+                border: $border;
+                background: $light-green;
+                padding: 3rem 2rem;
+
+                img{
+                    height: 5rem;
+                    margin-bottom: .7rem;
+                }
+
+                h3{
+                    padding: .5rem 0;
+                    @include titleText(3rem);
+                }
+
+                span{
+                    @include graphText(1.5rem);
+                }
+            }
         }
     }
 
     
 }
 
+.teachers{
+    .slide{
+        text-align: center;
+        width: 30rem; //here he cut the width in slide of home courses //and then he cut this line as well 
 
+        &:hover{
+            .image{
+                img{
+                    background: $green;
+                }
+
+                .share{
+                    bottom: 0;
+                }
+            }
+        }
+
+        .image{
+            position: relative;
+            overflow: hidden;
+
+            img{
+                background: $light-green;
+                width: 100%;
+            }
+
+            .share{
+                position: absolute;
+                bottom: -10rem; left:0; right: 0;
+                background: rgba(0, 0, 0, .8);
+                padding: 3rem;
+
+                a{
+                    font-size: 3rem;
+                    margin: 0 1rem;
+                    color:$white;
+
+                    &:hover{
+                        color: $green;
+                    }
+                }
+            }
+        }
+
+        .content{
+            display: flex;
+            padding-top: 2rem;
+            align-items: center;
+            justify-content: space-between;
+
+            h3{
+                @include titleText(2rem);
+            }
+            span{
+                @include graphText(1.5rem);
+            }
+        }
+    }
+}
+
+.reviews{
+    .slide{
+        text-align: center;
+        //width: 30rem; //probably cutting these for slider
+
+        p{
+            @include graphText(1.5rem);
+            position: relative;
+            background: $light-green;
+            border: $border;
+            margin-bottom: 3rem;
+            padding: 2rem;
+
+            &::before{
+                content: '';
+                position: absolute;
+                bottom: -1.2rem; left: 50%;
+                transform: translateX(-50%) rotate(45deg);
+                background: $light-green;
+                border-bottom: $border;
+                border-right: $border;
+                height: 2rem;
+                width: 2rem;
+            }
+        }
+
+        img{
+            height: 7rem;
+            width: 7rem;
+            border-radius: 50%;
+        }
+        h3{
+            @include titleText(1.7rem);
+            padding: .5rem 0;
+        }
+
+        .stars{
+            font-size: 1.2rem;
+            color: $green;
+
+        }
+    }
+}
+
+ 
 /*media queries */
 @media (max-width:1200px){
     .header{
         padding: 2rem 5%;
+    }
+
+    section{
+        padding: 3rem 5% ;
     }
     
 }
@@ -184,6 +506,10 @@ color: black;
     .header{
         padding: 2rem;
     }
+
+    section{
+        padding: 3rem 2rem ;
+    }
 }
 
 @media(max-width: 768px){
@@ -191,22 +517,27 @@ color: black;
     #menu-btn{
         display: inline-block;
     }
+
     .navbar{
         position: fixed;
         top:0; right: -105%;
         width: 30rem;
-        background: white;
+        background: $white;
         /*box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8); */
         height: 100%;
         display: flex;
         flex-flow: column;
         justify-content: center;
+        z-index: 1200;
+        #clode-navbar{
+            display: block;
+        }
+    
+         &.active{
+            box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
+            right: 0;
 
-        //&.active{
-
-        //}
-box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
-right: 0;
+         }
         a{
             display: block;
             margin: 1rem 0;
@@ -214,12 +545,18 @@ right: 0;
             font-size: 3rem;
         }
     }
+    }
 }
-}
+
 
 @media (max-width:450px){
    html{
     font-size: 50%;
    }
-}
 
+   //.heading{}
+
+   .about .content .about-title {
+    font-size: 4rem;
+   }
+}
